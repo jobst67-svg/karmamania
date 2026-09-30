@@ -17,8 +17,8 @@ const fakeUsers = Array.from({length: 1099}, (_, index) => {
 });
 
 const ranked = [...fakeUsers].sort((a, b) => b.karma - a.karma || a.username.localeCompare(b.username));
-const top = ranked.filter(user => user.karma >= 0).slice(0, 10);
-const flop = [...fakeUsers].filter(user => user.karma < 0)
+const topUsers = ranked.filter(user => user.karma >= 0).slice(0, 10);
+const flopUsers = [...fakeUsers].filter(user => user.karma < 0)
   .sort((a, b) => a.karma - b.karma || a.username.localeCompare(b.username)).slice(0, 10);
 
 const search = document.querySelector('#demo-search');
@@ -73,8 +73,8 @@ function renderDirectory() {
   next.disabled = page === pages;
 }
 
-renderList(document.querySelector('#demo-top'), top);
-renderList(document.querySelector('#demo-flop'), flop);
+renderList(document.querySelector('#demo-top'), topUsers);
+renderList(document.querySelector('#demo-flop'), flopUsers);
 renderDirectory();
 search.addEventListener('input', () => {page = 1; renderDirectory();});
 previous.addEventListener('click', () => {page--; renderDirectory();});
