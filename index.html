@@ -7,7 +7,8 @@
   <meta name="description" content="KarmaMania: 80 freche Fragen, spontane Aufgaben und 10 Minuten für eine gute Tat. Die Android-App startet mit 10 Karma-Punkten.">
   <title>KarmaMania – Dein Alltag hat Fragen</title>
   <link rel="icon" type="image/webp" href="/assets/karmamania-mascot.webp">
-  <link rel="stylesheet" href="/styles.css?v=online">
+  <link rel="stylesheet" href="/styles.css?v=demo-leaderboard">
+  <script src="/leaderboard-demo.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -17,6 +18,7 @@
       <nav aria-label="Hauptnavigation">
         <a href="#so-gehts">So läuft's</a>
         <a href="#fragen">Fragen</a>
+        <a href="#rangliste">Rangliste</a>
         <a href="#spielmodi">Offline / Online</a>
         <a href="#datenschutz">Privatsphäre</a>
       </nav>
@@ -46,7 +48,7 @@
         <span class="ticker-cross" aria-hidden="true">✳</span>
         <p><strong>80</strong><span>Fragen im Mix</span></p>
         <span class="ticker-cross" aria-hidden="true">✳</span>
-        <p><strong>10 MIN</strong><span>Zeit für die Challenge</span></p>
+        <p><strong>10 MIN</strong><span>bei Aufgaben mit Frist</span></p>
       </div>
     </div>
 
@@ -59,7 +61,7 @@
       <div class="steps">
         <article><span class="step-number">01</span><h3>Es ploppt auf.</h3><p>Eine Frage aus dem Alltag. Manchmal nett, manchmal unangenehm treffend.</p></article>
         <article><span class="step-number">02</span><h3>Du entscheidest.</h3><p>Ja oder Nein. Die ehrliche Antwort zählt. Niemand außer dir muss sie sehen.</p></article>
-        <article><span class="step-number">03</span><h3>Jetzt wird's ernst.</h3><p>Wenn eine Aufgabe fällig wird, hast du zehn Minuten. Der Timer soll auch dann weiterlaufen, wenn du die App schließt. Diese Funktion wird noch überarbeitet.</p></article>
+        <article><span class="step-number">03</span><h3>Jetzt wird's ernst.</h3><p>Manche Aufgaben haben zehn Minuten Frist, andere bleiben offen. Einmal am Tag kannst du eine Aufgabe punktneutral auf morgen verschieben.</p></article>
       </div>
     </section>
 
@@ -71,10 +73,33 @@
           <p>Ein Vorgeschmack auf den Fragenmix. Die App überrascht dich mit freundlichen und ziemlich direkten Aufgaben.</p>
         </div>
         <div class="question-stack">
-          <article class="question-card"><span>01 / FREUNDLICH</span><h3>Hast du heute schon jemanden ohne Grund angelächelt?</h3><p>Falls nicht: Du hast zehn Minuten Zeit.</p></article>
+          <article class="question-card"><span>01 / FREUNDLICH</span><h3>Hast du heute schon jemanden ohne Grund angelächelt?</h3><p>Falls nicht: Hol es bei Gelegenheit nach. Kein Timer für diese Aufgabe.</p></article>
           <article class="question-card"><span>02 / FRECH</span><h3>Hast du heute schon eine Nachricht absichtlich ignoriert?</h3><p>Man kann auch jetzt noch ehrlich antworten.</p></article>
           <article class="question-card"><span>03 / UNBEQUEM</span><h3>Hast du heute über jemanden gelästert, der nicht dabei war?</h3><p>Dein Karma hört zu. 😈</p></article>
         </div>
+      </div>
+    </section>
+
+    <section class="section demo-board" id="rangliste" aria-labelledby="demo-title">
+      <div class="shell">
+        <div class="demo-head">
+          <div class="section-heading">
+            <p class="eyebrow">1.099 FIGUREN. NULL ECHTE KONTEN.</p>
+            <h2 id="demo-title">Karma in der<br><span>Testarena.</span></h2>
+            <p>So könnte eine volle Rangliste aussehen. Alle 1.099 Profile und Punkte hier sind erfunden und bleiben ausschließlich auf dieser Webseite.</p>
+          </div>
+          <div class="demo-stamp"><strong>1.099</strong><span>fiktive Demo-Profile</span><small>Keine echten Spieler · keine Supabase-Einträge</small></div>
+        </div>
+        <div class="demo-rankings">
+          <div class="demo-panel"><h3>😇 Top Ten</h3><p>Ab 0 Karma</p><ol id="demo-top" aria-label="Die besten zehn Demo-Profile"></ol></div>
+          <div class="demo-panel"><h3>😈 Flop Ten</h3><p>Nur unter 0 Karma</p><ol id="demo-flop" aria-label="Die zehn niedrigsten Demo-Profile"></ol></div>
+        </div>
+        <div class="demo-directory">
+          <div class="demo-directory-head"><div><h3>Alle 1.099 Fakeuser</h3><p>Durchsuchen statt endlos scrollen.</p></div><label for="demo-search">Fakeuser finden <input id="demo-search" type="search" placeholder="Username oder Land" autocomplete="off"></label></div>
+          <ol id="demo-all" class="demo-all" aria-live="polite"></ol>
+          <div class="demo-pagination"><button id="demo-prev" type="button">← Zurück</button><span id="demo-page" aria-live="polite"></span><button id="demo-next" type="button">Weiter →</button></div>
+        </div>
+        <p class="demo-disclaimer">Demo-Daten zum Ausprobieren. Die echte App-Rangliste zeigt nur Online-Spieler mit freiwilliger Freigabe.</p>
       </div>
     </section>
 
@@ -97,7 +122,7 @@
           <p class="mode-note">Eine E-Mail ist freiwillig. Die Kontowiederherstellung per E-Mail ist noch nicht verfügbar.</p>
         </article>
       </div>
-      <p class="leaderboard-note"><strong>Top Ten und Worst Ten?</strong> Im Online-Modus erscheinen dort nur Spieler, die Username, Land und Karma ausdrücklich freigeben. Ohne Freigabe bleibt dein Profil privat. Die Punkte stammen derzeit vom Handy und sind noch nicht gegen Manipulation geschützt.</p>
+      <p class="leaderboard-note"><strong>Top Ten und Flop Ten?</strong> Im Online-Modus erscheinen dort nur Spieler, die Username, Land und Karma ausdrücklich freigeben. In die Flop Ten kommt man erst unter 0 Karma. Ohne Freigabe bleibt dein Profil privat. Die Punkte stammen derzeit vom Handy und sind noch nicht gegen Manipulation geschützt.</p>
     </section>
 
     <section class="section shell privacy" id="datenschutz" aria-labelledby="privacy-title">
