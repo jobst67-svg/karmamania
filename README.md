@@ -1,3 +1,3 @@
 # KarmaMania Website
 
-Statische Startseite für KarmaMania. Die Demo-Rangliste auf der Homepage erzeugt 1.099 fiktive Profile direkt im Browser. Sie führt keine Anmeldung, Supabase-Abfrage oder Datensynchronisation aus. Die echte Android-Rangliste zeigt nur Online-Spieler mit freiwilliger Freigabe.
+Statische Startseite für KarmaMania. Die Rangliste lädt nach Anmeldung mit dem Online-Konto die freiwillig freigegebenen Spieler direkt von Supabase. Die Webseite speichert Zugangsdaten oder Sitzungstoken nicht dauerhaft. Eine öffentliche Namens- und Punkteanzeige ist nicht freigegeben.

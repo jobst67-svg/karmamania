@@ -7,8 +7,8 @@
   <meta name="description" content="KarmaMania: 80 freche Fragen, spontane Aufgaben und 10 Minuten für eine gute Tat. Die Android-App startet mit 10 Karma-Punkten.">
   <title>KarmaMania – Dein Alltag hat Fragen</title>
   <link rel="icon" type="image/webp" href="/assets/karmamania-mascot.webp">
-  <link rel="stylesheet" href="/styles.css?v=demo-leaderboard">
-  <script src="/leaderboard-demo.js" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=real-leaderboard">
+  <script src="/leaderboard.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -80,26 +80,33 @@
       </div>
     </section>
 
-    <section class="section demo-board" id="rangliste" aria-labelledby="demo-title">
+    <section class="section rank-board" id="rangliste" aria-labelledby="leaderboard-title">
       <div class="shell">
-        <div class="demo-head">
+        <div class="rank-head">
           <div class="section-heading">
-            <p class="eyebrow">1.099 FIGUREN. NULL ECHTE KONTEN.</p>
-            <h2 id="demo-title">Karma in der<br><span>Testarena.</span></h2>
-            <p>So könnte eine volle Rangliste aussehen. Alle 1.099 Profile und Punkte hier sind erfunden und bleiben ausschließlich auf dieser Webseite.</p>
+            <p class="eyebrow">ECHTE SPIELER. ECHTES KARMA.</p>
+            <h2 id="leaderboard-title">Die echte<br><span>Bestenliste.</span></h2>
+            <p>Hier stehen nur Online-Spieler, die ihre Punkte freiwillig freigegeben haben. Die Namen und Punkte sind ausschließlich für angemeldete Spieler sichtbar.</p>
           </div>
-          <div class="demo-stamp"><strong>1.099</strong><span>fiktive Demo-Profile</span><small>Keine echten Spieler · keine Supabase-Einträge</small></div>
         </div>
-        <div class="demo-rankings">
-          <div class="demo-panel"><h3>😇 Top Ten</h3><p>Ab 0 Karma</p><ol id="demo-top" aria-label="Die besten zehn Demo-Profile"></ol></div>
-          <div class="demo-panel"><h3>😈 Flop Ten</h3><p>Nur unter 0 Karma</p><ol id="demo-flop" aria-label="Die zehn niedrigsten Demo-Profile"></ol></div>
+        <form class="leaderboard-login" id="leaderboard-login">
+          <h3>Mit deinem Online-Konto anmelden</h3>
+          <p>Die gleiche Anmeldung wie in der KarmaMania-App. Dein Passwort wird hier nicht gespeichert.</p>
+          <div class="leaderboard-fields">
+            <label>Username <input name="username" type="text" required maxlength="24" autocomplete="username"></label>
+            <label>Passwort <input name="password" type="password" required autocomplete="current-password"></label>
+            <button type="submit">Bestenliste ansehen</button>
+          </div>
+          <p class="leaderboard-status" id="leaderboard-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="leaderboard-results" id="leaderboard-results" hidden>
+          <div class="leaderboard-toolbar"><p>Angemeldet · Nur freiwillig freigegebene Profile</p><button id="leaderboard-logout" type="button">Abmelden</button></div>
+          <div class="rank-rankings">
+            <div class="rank-panel"><h3>😇 Top Ten</h3><p>Ab 0 Karma</p><ol id="leaderboard-top" aria-label="Die besten freigegebenen Spieler"></ol></div>
+            <div class="rank-panel"><h3>😈 Worst Ten</h3><p>Nur unter 0 Karma</p><ol id="leaderboard-worst" aria-label="Die niedrigsten freigegebenen Spieler"></ol></div>
+          </div>
         </div>
-        <div class="demo-directory">
-          <div class="demo-directory-head"><div><h3>Alle 1.099 Fakeuser</h3><p>Durchsuchen statt endlos scrollen.</p></div><label for="demo-search">Fakeuser finden <input id="demo-search" type="search" placeholder="Username oder Land" autocomplete="off"></label></div>
-          <ol id="demo-all" class="demo-all" aria-live="polite"></ol>
-          <div class="demo-pagination"><button id="demo-prev" type="button">← Zurück</button><span id="demo-page" aria-live="polite"></span><button id="demo-next" type="button">Weiter →</button></div>
-        </div>
-        <p class="demo-disclaimer">Demo-Daten zum Ausprobieren. Die echte App-Rangliste zeigt nur Online-Spieler mit freiwilliger Freigabe.</p>
+        <p class="rank-disclaimer">Die Punkte stammen derzeit vom Handy und sind noch nicht gegen Manipulation geschützt.</p>
       </div>
     </section>
 
@@ -122,7 +129,7 @@
           <p class="mode-note">Eine E-Mail ist freiwillig. Die Kontowiederherstellung per E-Mail ist noch nicht verfügbar.</p>
         </article>
       </div>
-      <p class="leaderboard-note"><strong>Top Ten und Flop Ten?</strong> Im Online-Modus erscheinen dort nur Spieler, die Username, Land und Karma ausdrücklich freigeben. In die Flop Ten kommt man erst unter 0 Karma. Ohne Freigabe bleibt dein Profil privat. Die Punkte stammen derzeit vom Handy und sind noch nicht gegen Manipulation geschützt.</p>
+      <p class="leaderboard-note"><strong>Top Ten und Worst Ten?</strong> Im Online-Modus erscheinen dort nur Spieler, die Username, Land und Karma ausdrücklich freigeben. In die Worst Ten kommt man erst unter 0 Karma. Ohne Freigabe bleibt dein Profil privat. Die Punkte stammen derzeit vom Handy und sind noch nicht gegen Manipulation geschützt.</p>
     </section>
 
     <section class="section shell privacy" id="datenschutz" aria-labelledby="privacy-title">
